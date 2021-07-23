@@ -427,13 +427,13 @@ function printCard(card) {
   <div class="col-10 col-md-6 col-xl-4 p-2">
     <div class="card p-3" style="background-color:${
       card.borderColor
-    }; border-radius:20px;">
-      <div class="p-3 bg-white" style="height: 49rem;">
+    }; border-radius:30px;">
+      <div class="p-3 bg-white" style="height: 49rem; border-radius:20px;">
         <ul class="list-unstyled">
           <li class="mb-2">
             <img class="w-100" src="${
               card.illustration.source
-            }" alt="Gargadonte Maggiore">
+            }" alt="Gargadonte Maggiore" style="border-radius:10px;">
             <em>Illustrazione di ${card.illustration.author.name}</em>
           </li>
           <li><strong>Nome:</strong> ${card.name}</li>
