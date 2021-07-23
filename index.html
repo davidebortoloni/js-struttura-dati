@@ -14,8 +14,36 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="text-center my-4">Archivio carte</h1>
-      <section id="card-section" class="row justify-content-around"></section>
+      <section id="title" class="row text-center my-4">
+        <div class="col-12">
+          <h1 class="my-4">Archivio carte</h1>
+        </div>
+      </section>
+      <section id="filter-section" class="row text-center my-4">
+        <div class="col-10 offset-1 col-md-6 offset-md-3">
+          <div class="input-group mb-3">
+            <select id="select-field" class="form-select">
+              <option value="all">---- Niente filtri ----</option>
+              <option value="name">Nome</option>
+              <option value="manaCost">Costo di mana</option>
+              <option value="convertedManaCost">Costo di Mana Convertito (CMC)</option>
+              <option value="type">Tipo di carta</option>
+              <option value="subType">Sottotipo</option>
+              <option value="expansion-name">Nome dell'espansione</option>
+              <option value="rarity">Rarità</option>
+              <option value="abilities-launchCost">Costo di lancio dell'abilità</option>
+              <option value="abilities-description">Descrizione abilità</option>
+              <option value="flavorText">Testo di colore</option>
+              <option value="illustration-author">Autore dell'illustrazione</option>
+              <option value="power">Forza</option>
+              <option value="toughness">Costituzione</option>
+            </select>
+          </div>
+          <input type="text" id="input-text-field" class="form-control d-none mb-3">
+          <button id="search-button" class="btn btn-outline-secondary" type="button">Cerca</button>
+        </div>
+      </section>
+      <section id="card-section" class="row justify-content-around my-4"></section>
     </div>
     <script src="./script.js"></script>
   </body>
