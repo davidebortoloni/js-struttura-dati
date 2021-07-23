@@ -5,6 +5,7 @@ const selectType = document.getElementById("select-type");
 const selectRarity = document.getElementById("select-rarity");
 const searchButton = document.getElementById("search-button");
 const cardSection = document.getElementById("card-section");
+const message = document.getElementById("message");
 
 const deck = [
   {
@@ -105,6 +106,101 @@ const deck = [
     toughness: "",
     borderColor: "#141011",
   },
+  {
+    name: "Indebolimento",
+    manaCost: ["B"],
+    convertedManaCost: 1,
+    type: "Incantesimo",
+    subType: "Aura",
+    expansion: {
+      cod: "M10",
+      name: "Magic 2010",
+      cardNr: 121,
+      totalNr: 249,
+    },
+    rarity: "Comune",
+    abilities: [
+      {
+        launchCost: [],
+        description: "Incanta creatura. La creatura incantata prende -2/-1.",
+      },
+    ],
+    flavorText:
+      '"Perché la forza abbia significato, devi esserci anche... tu."',
+    illustration: {
+      source: "./img/indebolimento.jpg",
+      author: {
+        id: 4,
+        name: "Kev Walker",
+      },
+    },
+    power: "",
+    toughness: "",
+    borderColor: "#000000",
+  },
+  {
+    name: "Trombettiere della Milizia",
+    manaCost: ["2", "W"],
+    convertedManaCost: 3,
+    type: "Creatura",
+    subType: "Soldato Umano",
+    expansion: {
+      cod: "M19",
+      name: "Core Set 2019",
+      cardNr: 29,
+      totalNr: 280,
+    },
+    rarity: "Non comune",
+    abilities: [
+      {
+        launchCost: [],
+        description:
+          "Cautela (Questa creatura attacca senza TAPpare.) Quando il Trombettiere della Milizia entra nel campo di battaglia, guarda le prime quattro carte del tuo grimorio. Puoi rivelare una carta creatura con forza pari o inferiore a 2 scelta tra esse e aggiungerla alla tua mano. Metti le altre in fondo al tuo grimorio in ordine casuale.",
+      },
+    ],
+    flavorText: "",
+    illustration: {
+      source: "./img/trombettiere_della_milizia.jpg",
+      author: {
+        id: 5,
+        name: "David Gaillet",
+      },
+    },
+    power: "2",
+    toughness: "3",
+    borderColor: "#141011",
+  },
+  {
+    name: "Tramutante Possente",
+    manaCost: ["4", "G"],
+    convertedManaCost: 5,
+    type: "Creatura",
+    subType: "Tramutante",
+    expansion: {
+      cod: "TSR",
+      name: "Time Spiral Remastered",
+      cardNr: 218,
+      totalNr: 289,
+    },
+    rarity: "Non comune",
+    abilities: [
+      {
+        launchCost: [],
+        description: "Tutte le creature Tramutante prendono +2/+2.",
+      },
+    ],
+    flavorText: `"Quella cosa gigantesca rotolò oltre il crinale, sgretolando i tronchi d'albero davanti a sé. Quando sopraggiunse, quelli con cui stavamo già combattendo gridarono, i loro muscoli improvvisamente rinforzati, e capimmo che era il momento di fuggire.<br>—Llanach, Ranger di Cielsudario"`,
+    illustration: {
+      source: "./img/tramutante_possente.jpg",
+      author: {
+        id: 6,
+        name: "Jeff Miracola",
+      },
+    },
+    power: "2",
+    toughness: "2",
+    borderColor: "#001622",
+  },
 ];
 
 printDeck(deck);
@@ -148,6 +244,7 @@ selectProperty.addEventListener("change", () => {
   }
 });
 searchButton.addEventListener("click", () => {
+  message.innerHTML = "";
   if (selectProperty.value === "all") {
     printDeck(deck);
   } else {
@@ -167,6 +264,9 @@ searchButton.addEventListener("click", () => {
             }
           }
           printDeck(filteredDeck);
+        } else {
+          message.innerHTML =
+            "<h4>Scrivere qualcosa per ricercare le carte</h4>";
         }
         break;
       case "manaCost":
@@ -187,6 +287,9 @@ searchButton.addEventListener("click", () => {
             }
           }
           printDeck(filteredDeck);
+        } else {
+          message.innerHTML =
+            "<h4>Scrivere qualcosa per ricercare le carte</h4>";
         }
         break;
       case "type":
@@ -212,6 +315,9 @@ searchButton.addEventListener("click", () => {
             }
           }
           printDeck(filteredDeck);
+        } else {
+          message.innerHTML =
+            "<h4>Scrivere qualcosa per ricercare le carte</h4>";
         }
         break;
       case "illustration-author-name":
@@ -230,6 +336,9 @@ searchButton.addEventListener("click", () => {
             }
           }
           printDeck(filteredDeck);
+        } else {
+          message.innerHTML =
+            "<h4>Scrivere qualcosa per ricercare le carte</h4>";
         }
         break;
       case "abilities-description":
@@ -249,6 +358,9 @@ searchButton.addEventListener("click", () => {
             }
           }
           printDeck(filteredDeck);
+        } else {
+          message.innerHTML =
+            "<h4>Scrivere qualcosa per ricercare le carte</h4>";
         }
         break;
       case "rarity":
@@ -285,6 +397,9 @@ function printDeck(deck) {
   for (let i = 0; i < deck.length; i++) {
     printCard(deck[i]);
   }
+  if (deck.length == 0) {
+    message.innerHTML = "<h4>Non sono state trovate carte</h4>";
+  }
 }
 function printCard(card) {
   const subType = card.subType ? `- ${card.subType}` : "";
@@ -310,8 +425,10 @@ function printCard(card) {
   }
   const cardContent = `
   <div class="col-10 col-md-6 col-xl-4 p-2">
-    <div class="card p-3" style="background-color:${card.borderColor};">
-      <div class="p-3 bg-white" style="height: 45rem;">
+    <div class="card p-3" style="background-color:${
+      card.borderColor
+    }; border-radius:20px;">
+      <div class="p-3 bg-white" style="height: 49rem;">
         <ul class="list-unstyled">
           <li class="mb-2">
             <img class="w-100" src="${
