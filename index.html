@@ -22,28 +22,77 @@
       <section id="filter-section" class="row text-center my-4">
         <div class="col-10 offset-1 col-md-6 offset-md-3">
           <div class="input-group mb-3">
-            <select id="select-field" class="form-select">
+            <select id="select-property" class="form-select">
               <option value="all">---- Niente filtri ----</option>
               <option value="name">Nome</option>
               <option value="manaCost">Costo di mana</option>
-              <option value="convertedManaCost">Costo di Mana Convertito (CMC)</option>
+              <option value="convertedManaCost">
+                Costo di Mana Convertito (CMC)
+              </option>
               <option value="type">Tipo di carta</option>
               <option value="subType">Sottotipo</option>
               <option value="expansion-name">Nome dell'espansione</option>
               <option value="rarity">Rarità</option>
-              <option value="abilities-launchCost">Costo di lancio dell'abilità</option>
+              <option value="abilities-launchCost">
+                Costo di attivazione dell'abilità
+              </option>
               <option value="abilities-description">Descrizione abilità</option>
               <option value="flavorText">Testo di colore</option>
-              <option value="illustration-author">Autore dell'illustrazione</option>
+              <option value="illustration-author-name">
+                Autore dell'illustrazione
+              </option>
               <option value="power">Forza</option>
               <option value="toughness">Costituzione</option>
             </select>
           </div>
-          <input type="text" id="input-text-field" class="form-control d-none mb-3">
-          <button id="search-button" class="btn btn-outline-secondary" type="button">Cerca</button>
+          <div class="input-group">
+            <select id="select-mana" class="d-none form-select">
+              <option value="W">Bianco</option>
+              <option value="U">Blu</option>
+              <option value="B">Nero</option>
+              <option value="R">Rosso</option>
+              <option value="G">Verde</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <select id="select-type" class="d-none form-select">
+              <option value="Artefatto">Artefatto</option>
+              <option value="Creatura">Creatura</option>
+              <option value="Incantesimo">Incantesimo</option>
+              <option value="Istantaneo">Istantaneo</option>
+              <option value="Planeswalker">Planeswalker</option>
+              <option value="Stregoneria">Stregoneria</option>
+              <option value="Terra">Terra</option>
+              <option value="Tribale">Tribale</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <select id="select-rarity" class="d-none form-select">
+              <option value="Comune">Comune</option>
+              <option value="Non comune">Non comune</option>
+              <option value="Rara">Rara</option>
+              <option value="Rara mitica">Rara mitica</option>
+            </select>
+          </div>
+          <input
+            type="text"
+            id="input-text"
+            class="form-control d-none"
+            placeholder="Scrivi qui la tua ricerca..."
+          />
+          <button
+            id="search-button"
+            class="btn btn-outline-secondary mt-3"
+            type="button"
+          >
+            Cerca
+          </button>
         </div>
       </section>
-      <section id="card-section" class="row justify-content-around my-4"></section>
+      <section
+        id="card-section"
+        class="row justify-content-around my-4"
+      ></section>
     </div>
     <script src="./script.js"></script>
   </body>
