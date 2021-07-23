@@ -159,7 +159,9 @@ searchButton.addEventListener("click", () => {
         if (inputText.value.trim() !== "") {
           for (let i = 0; i < deck.length; i++) {
             if (
-              deck[i][selectProperty.value].includes(inputText.value.trim())
+              deck[i][selectProperty.value]
+                .toLowerCase()
+                .includes(inputText.value.trim().toLowerCase())
             ) {
               filteredDeck.push(deck[i]);
             }
@@ -202,9 +204,9 @@ searchButton.addEventListener("click", () => {
           const secondProperty = dividedProperties[1];
           for (let i = 0; i < deck.length; i++) {
             if (
-              deck[i][firstProperty][secondProperty].includes(
-                inputText.value.trim()
-              )
+              deck[i][firstProperty][secondProperty]
+                .toLowerCase()
+                .includes(inputText.value.trim().toLowerCase())
             ) {
               filteredDeck.push(deck[i]);
             }
@@ -220,9 +222,9 @@ searchButton.addEventListener("click", () => {
           const thirdProperty = dividedProperties[2];
           for (let i = 0; i < deck.length; i++) {
             if (
-              deck[i][firstProperty][secondProperty][thirdProperty].includes(
-                inputText.value.trim()
-              )
+              deck[i][firstProperty][secondProperty][thirdProperty]
+                .toLowerCase()
+                .includes(inputText.value.trim().toLowerCase())
             ) {
               filteredDeck.push(deck[i]);
             }
@@ -238,9 +240,9 @@ searchButton.addEventListener("click", () => {
           for (let i = 0; i < deck.length; i++) {
             for (let j = 0; j < [firstProperty].length; j++) {
               if (
-                deck[i][firstProperty][j][secondProperty].includes(
-                  inputText.value.trim()
-                )
+                deck[i][firstProperty][j][secondProperty]
+                  .toLowerCase()
+                  .includes(inputText.value.trim().toLowerCase())
               ) {
                 filteredDeck.push(deck[i]);
               }
